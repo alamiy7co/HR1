@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة الموارد البشرية | HR Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header id="header">
+    <div class="container navbar">
+      <a class="logo" href="index.html" aria-label="بوابة الموارد البشرية">
+        <span class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+            <circle cx="9" cy="7" r="4"></circle>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+          </svg>
+        </span>
+        <span class="logo-text">بوابة <strong>الموارد البشرية</strong></span>
+      </a>
+
+      <nav class="nav-actions" aria-label="القائمة الرئيسية">
+        <a class="nav-link" href="#home">الرئيسية</a>
+        <a class="nav-link" href="#announcements">الإعلانات</a>
+        <a class="nav-link" href="#booking">حجز القاعات</a>
+        <a class="nav-link nav-tax" href="tax.html">الضريبة والضمان</a>
+        <button class="btn btn-dark btn-sm" type="button" onclick="openAdminLogin()">دخول الأدمن</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero portal-hero" id="home">
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span></span> نظام داخلي موحد لقسم الموارد البشرية</div>
+          <h1>بوابة موارد بشرية أكثر وضوحاً، سرعة، وترابطاً.</h1>
+          <p>
+            منصة واحدة تجمع الإعلانات الداخلية، حجز القاعات، التقديم للوظائف، واحتساب الضريبة والضمان
+            ضمن تجربة احترافية حديثة تناسب بيئة العمل اليومية.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#quickAccess">استعراض الخدمات</a>
+            <a class="btn btn-outline" href="tax.html">فتح الحاسبة</a>
+          </div>
+
+          <div class="hero-metrics" aria-label="مؤشرات البوابة">
+            <div><strong>5</strong><span>خدمات رئيسية</span></div>
+            <div><strong>2</strong><span>قاعات للحجز</span></div>
+            <div><strong>24/7</strong><span>وصول سريع</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="visual-card">
+            <img src="hero.jpg" alt="اجتماع فريق الموارد البشرية" />
+            <div class="visual-overlay">
+              <div>
+                <span class="status-dot"></span>
+                HR Operations Hub
+              </div>
+              <p>إدارة داخلية متصلة وواضحة للموظفين والإدارة.</p>
+            </div>
+          </div>
+          <div class="floating-chip chip-a">إعلانات</div>
+          <div class="floating-chip chip-b">حجز القاعات</div>
+          <div class="floating-chip chip-c">Payroll</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-section" id="quickAccess">
+      <div class="container">
+        <div class="quick-grid">
+          <a class="quick-card reveal" href="#announcements">
+            <span class="quick-icon">📢</span>
+            <strong>الإعلانات</strong>
+            <small>آخر التحديثات الداخلية</small>
+          </a>
+          <a class="quick-card reveal" href="#booking">
+            <span class="quick-icon">📅</span>
+            <strong>حجز القاعات</strong>
+            <small>حجز مباشر وسريع</small>
+          </a>
+          <a class="quick-card reveal" id="applyFormQuick" href="#" target="_blank" rel="noopener">
+            <span class="quick-icon">🧾</span>
+            <strong>التقديم للوظائف</strong>
+            <small>نموذج Google Form</small>
+          </a>
+          <a class="quick-card reveal" href="tax.html">
+            <span class="quick-icon">💳</span>
+            <strong>الضريبة والضمان</strong>
+            <small>حاسبة تفصيلية للطباعة</small>
+          </a>
+          <button class="quick-card reveal quick-button" type="button" onclick="openAdminLogin()">
+            <span class="quick-icon">🔐</span>
+            <strong>الأدمن</strong>
+            <small>بطاقات وروابط الإدارة</small>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="announcements" class="content-section section-panel">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker">Announcements</span>
+          <h2>لوحة الإعلانات</h2>
+          <p>آخر التحديثات والتنبيهات الداخلية الخاصة بالشركة تظهر هنا بشكل واضح ومرتب.</p>
+        </div>
+        <div class="ann-list" id="annList"></div>
+      </div>
+    </section>
+
+    <section class="portal-section content-section" id="portal">
+      <div class="container">
+        <div class="section-title reveal">
+          <span class="section-kicker">Services</span>
+          <h2>خدمات البوابة</h2>
+          <p>الوصول إلى أهم خدمات الموارد البشرية من مكان واحد وبنفس تجربة الاستخدام.</p>
+        </div>
+
+        <div class="services-grid">
+          <div id="booking" class="card service-card reveal">
+            <div class="card-head">
+              <div>
+                <h3>حجز القاعات</h3>
+                <p>اختر القاعة المناسبة وافتح جدول الحجز مباشرة.</p>
+              </div>
+              <span class="badge">Calendly</span>
+            </div>
+            <div class="card-body">
+              <div class="booking-stack">
+                <div class="booking-card">
+                  <div class="icon-box">📅</div>
+                  <div class="booking-content">
+                    <h4>القاعة الكبيرة</h4>
+                    <p>للاجتماعات الرسمية والورش والتدريب.</p>
+                    <button class="btn btn-primary btn-sm" type="button" onclick="openCalendly('big')">حجز الآن</button>
+                  </div>
+                </div>
+                <div class="booking-card">
+                  <div class="icon-box small-room-icon">🏢</div>
+                  <div class="booking-content">
+                    <h4>القاعة الصغيرة</h4>
+                    <p>للاجتماعات السريعة والمقابلات الفردية.</p>
+                    <button class="btn btn-primary btn-sm" type="button" onclick="openCalendly('small')">حجز الآن</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="apply" class="card service-card reveal">
+            <div class="card-head">
+              <div>
+                <h3>التقديم للوظائف المتاحة</h3>
+                <p>نموذج موحد لاستلام السير الذاتية والترشيحات.</p>
+              </div>
+              <span class="badge">Google Form</span>
+            </div>
+            <div class="card-body">
+              <p class="apply-text">
+                هذا النموذج عام لموظفي الشركة. الرجاء عدم التواصل عن طريق الواتساب وإرسال السيرة الذاتية
+                أو معلومات الشخص من خلال هذا النموذج، ويمكن مشاركته مع الأشخاص المقربين.
+              </p>
+              <a class="btn btn-primary btn-sm" id="applyFormBtn" href="#" target="_blank" rel="noopener">تقديم الآن</a>
+            </div>
+          </div>
+
+          <div id="taxCalculator" class="card service-card reveal">
+            <div class="card-head">
+              <div>
+                <h3>احتساب الضريبة والضمان</h3>
+                <p>حاسبة مفصلة للراتب والاستقطاعات مع تقرير قابل للطباعة.</p>
+              </div>
+              <span class="badge">Payroll</span>
+            </div>
+            <div class="card-body">
+              <p class="apply-text">
+                صفحة تنفيذية مخصصة لقسم الموارد البشرية، متناسقة مع هوية البوابة وتحتوي على الجداول والرسوم.
+              </p>
+              <a class="btn btn-outline btn-sm" href="tax.html">فتح صفحة الاحتساب</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="info" class="info-section content-section">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div>
+            <span class="section-kicker">Contact</span>
+            <h2>معلومات التواصل</h2>
+            <p>لا تترددوا بالتواصل معنا، فنحن نعمل لأجلكم.</p>
+          </div>
+          <div class="contact-items">
+            <div class="contact-item">📞 <span id="hrPhone">+9647835795996</span></div>
+            <div class="contact-item">✉️ <a id="hrEmail" href="mailto:muntathar.satar@alamiyaco.com">muntathar.satar@alamiyaco.com</a></div>
+            <div class="contact-item">🕘 السبت–الخميس 8:30–4:30</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-mini">
+      <div class="item">📌 بوابة الموارد البشرية</div>
+      <div class="item">🧩 نظام داخلي موحد</div>
+      <div class="item">جميع الحقوق محفوظة &copy; <span id="year"></span> قسم الموارد البشرية.</div>
+    </div>
+  </footer>
+
+  <div class="modal" id="calModal" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3 id="calTitle">الحجز</h3>
+        <button class="xbtn" type="button" onclick="closeCalModal()">✕</button>
+      </div>
+      <div class="modal-body modal-body-zero">
+        <iframe class="cal-frame" id="calFrame" title="Calendly"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="adminLoginModal" aria-hidden="true">
+    <div class="modal-dialog admin-dialog" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <h3>دخول الأدمن</h3>
+        <button class="xbtn" type="button" onclick="closeAdminLogin()">✕</button>
+      </div>
+      <div class="admin-login-body">
+        <p class="admin-login-text">الرجاء إدخال كلمة المرور للدخول إلى بوابة الأدمن.</p>
+        <input type="password" id="adminPassword" placeholder="أدخل كلمة المرور" class="admin-password-input" />
+        <div id="adminLoginError" class="admin-login-error"></div>
+        <div class="admin-login-actions">
+          <button class="btn btn-primary" type="button" onclick="submitAdminLogin()">دخول</button>
+          <button class="btn btn-outline-dark" type="button" onclick="closeAdminLogin()">إلغاء</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

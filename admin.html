@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بوابة الأدمن | الموارد البشرية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-page">
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-grid"></div>
+
+  <header class="admin-header app-header">
+    <div class="container admin-topbar">
+      <a class="logo" href="index.html">
+        <span class="logo-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+        </span>
+        <span class="logo-text">بوابة <strong>الأدمن</strong></span>
+      </a>
+
+      <div class="admin-top-actions">
+        <a href="index.html" class="btn btn-primary">العودة للموقع</a>
+        <button class="btn btn-dark" type="button" onclick="logoutAdmin()">تسجيل الخروج</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <section class="admin-hero">
+      <div>
+        <span class="section-kicker">Admin Control</span>
+        <h1>مركز روابط وبطاقات الإدارة</h1>
+        <p>صفحة موحدة بنفس هوية بوابة الموارد البشرية لعرض بطاقات الإدارة وروابط الأدوات الداخلية.</p>
+      </div>
+      <div class="admin-help">للدعم: 07735796995</div>
+    </section>
+
+    <section class="admin-section">
+      <div class="section-title">
+        <span class="section-kicker">AdminCards</span>
+        <h2>بطاقات الإدارة</h2>
+        <p>تُسحب هذه البطاقات من Google Sheet وتظهر هنا بنفس تصميم خدمات البوابة.</p>
+      </div>
+      <div class="cards-grid" id="adminCardsList"></div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
