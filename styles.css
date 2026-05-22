@@ -305,4 +305,16 @@ html[dir="rtl"] .ann-actions {
   .ann-item {
     min-height: auto;
   }
+
+  /* ===== FIX: Prevent page sections from disappearing if JS/reveal fails ===== */
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.reveal.visible,
+.reveal.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
 }
