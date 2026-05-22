@@ -3,7 +3,7 @@ const CONFIG = {
   calendlySmall: "https://calendly.com/alamiya7hr/meeting-room",
   phone: "+9647835795996",
   email: "muntathar.satar@alamiyaco.com",
-  apiUrl: "https://script.google.com/macros/s/AKfycbw8PEP7RJSjCce7-wZXnPCzflHSRDNNIEsf4sCXL6wmsx2JsltteCKtJfjLM05mpnVHlg/exec",
+  apiUrl: "https://script.google.com/macros/s/AKfycbwAtBZJC5vhJOfwHrBgbP1Z9AJJI6QRkV9m8ZGttDYGJzfFlp5y0tGGWVpgP8zJFJXelw/exec",
   applyFormUrl: "https://forms.gle/UM28RJXSiH8pwrRG8",
   adminPassword: "20261100"
 };
