@@ -15,7 +15,7 @@ const FALLBACK_ANNOUNCEMENTS = [
     date: "",
     tag: "تنبيه",
     isActive: true,
-    priority: 1,
+    priority: 9999,
     linkUrl: "#",
     linkText: ""
   }
@@ -63,8 +63,6 @@ function formatDisplayDate(dateValue) {
 
   if (!raw) return "-";
 
-  // إذا التاريخ واصل من Apps Script بصيغة ISO
-  // مثال: 2026-05-21T21:00:00.000Z
   if (raw.includes("T")) {
     const d = new Date(raw);
 
@@ -77,8 +75,6 @@ function formatDisplayDate(dateValue) {
     }
   }
 
-  // إذا التاريخ واصل بصيغة yyyy-mm-dd
-  // مثال: 2026-05-22
   const parts = raw.split("-");
 
   if (parts.length === 3) {
@@ -98,6 +94,45 @@ function formatDisplayDate(dateValue) {
   }
 
   return raw;
+}
+
+function buildUrlWithParam(url, key, value) {
+  const separator = url.includes("?") ? "&" : "?";
+  return url + separator + encodeURIComponent(key) + "=" + encodeURIComponent(value);
+}
+
+function loadJsonp(url) {
+  return new Promise((resolve, reject) => {
+    const callbackName = "jsonpCallback_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+
+    let script;
+
+    window[callbackName] = function(data) {
+      resolve(data);
+
+      delete window[callbackName];
+
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+
+    script = document.createElement("script");
+    script.src = buildUrlWithParam(url, "callback", callbackName);
+    script.async = true;
+
+    script.onerror = function() {
+      delete window[callbackName];
+
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+
+      reject(new Error("JSONP load failed"));
+    };
+
+    document.body.appendChild(script);
+  });
 }
 
 /* =========================
@@ -223,15 +258,22 @@ function renderAnnouncements() {
 }
 
 async function loadAnnouncementsFromApi() {
-  const res = await fetch(CONFIG.apiUrl, {
-    cache: "no-store"
-  });
+  let data;
 
-  if (!res.ok) {
-    throw new Error("API HTTP " + res.status);
+  try {
+    const res = await fetch(CONFIG.apiUrl, {
+      cache: "no-store"
+    });
+
+    if (!res.ok) {
+      throw new Error("API HTTP " + res.status);
+    }
+
+    data = await res.json();
+  } catch (fetchError) {
+    console.warn("Fetch failed, trying JSONP fallback:", fetchError);
+    data = await loadJsonp(CONFIG.apiUrl);
   }
-
-  const data = await res.json();
 
   const arr = Array.isArray(data) ? data : (data.announcements || []);
 
@@ -374,6 +416,7 @@ function initRevealAnimation() {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
         entry.target.classList.add("revealed");
         observer.unobserve(entry.target);
       }
