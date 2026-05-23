@@ -1,8 +1,8 @@
 const CONFIG = {
   calendlyBig: "https://calendly.com/alamiya8hr/training-room",
   calendlySmall: "https://calendly.com/alamiya7hr/meeting-room",
-  phone: "+9647835795996",
-  email: "muntathar.satar@alamiyaco.com",
+  phone: "+9647880061999",
+  email: "GreatMuntadher@gmail.com",
   apiUrl: "https://script.google.com/macros/s/AKfycbzF4Vpg8YkDodFwr-eSD4CnrfGxDJvDEYyXqfsR3-bHZF4Xqx3ox4b_rkcndNAp4u9k7g/exec",
   applyFormUrl: "https://forms.gle/UM28RJXSiH8pwrRG8",
   adminPassword: "20261100"
